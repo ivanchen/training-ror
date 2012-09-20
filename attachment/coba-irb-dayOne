@@ -1,0 +1,223 @@
+1.9.3p194 :083 > case input_line
+1.9.3p194 :084?>   when "debug"
+1.9.3p194 :085?>   puts "debug"
+1.9.3p194 :086?>   when "quit","exit"
+1.9.3p194 :087?>   exit
+1.9.3p194 :088?>   else
+1.9.3p194 :089 >     print "illegal command: #{input_line}"
+1.9.3p194 :090?>   end
+NameError: undefined local variable or method `input_line' for main:Object
+	from (irb):83
+	from /home/ivanchen/.rvm/rubies/ruby-1.9.3-p194/bin/irb:16:in `<main>'
+1.9.3p194 :091 > input_line="debug"
+ => "debug" 
+1.9.3p194 :092 > case input_line
+1.9.3p194 :093?>   when "debug"
+1.9.3p194 :094?>   puts "debug"
+1.9.3p194 :095?>   when "quit","exit"
+1.9.3p194 :096?>   exit
+1.9.3p194 :097?>   else
+1.9.3p194 :098 >     print "illegal command: #{input_line}"
+1.9.3p194 :099?>   end
+debug
+ => nil 
+1.9.3p194 :100 > def hello()
+1.9.3p194 :101?>   print "hello world"
+1.9.3p194 :102?>   end
+ => nil 
+1.9.3p194 :103 > hello
+hello world => nil 
+1.9.3p194 :104 > def hello(something)
+1.9.3p194 :105?>   print "hello " + something
+1.9.3p194 :106?>   end
+ => nil 
+1.9.3p194 :107 > hello("ivan")
+hello ivan => nil 
+1.9.3p194 :108 > def caseTadi(input_line)
+1.9.3p194 :109?>   case input_line
+1.9.3p194 :110?>     when "debug"
+1.9.3p194 :111?>     puts "debug"
+1.9.3p194 :112?>     when "quit","exit"
+1.9.3p194 :113?>     exit
+1.9.3p194 :114?>     else
+1.9.3p194 :115 >       print "illegal commant: #{input_line}"
+1.9.3p194 :116?>     end
+1.9.3p194 :117?>   end
+ => nil 
+1.9.3p194 :118 > caseTadi("debug")
+debug
+ => nil 
+1.9.3p194 :119 > caseTadi("exit")
+ivanchen@WGS-PC:~/Project/hello_world$ irb
+1.9.3p194 :001 > caseTadi("aya aya wae")
+NoMethodError: undefined method `caseTadi' for main:Object
+	from (irb):1
+	from /home/ivanchen/.rvm/rubies/ruby-1.9.3-p194/bin/irb:16:in `<main>'
+1.9.3p194 :002 > a
+NameError: undefined local variable or method `a' for main:Object
+	from (irb):2
+	from /home/ivanchen/.rvm/rubies/ruby-1.9.3-p194/bin/irb:16:in `<main>'
+1.9.3p194 :003 > def caseTadi(input_line)
+1.9.3p194 :004?>   1.9.3p194 :109?>   case input_line
+1.9.3p194 :005?>     1.9.3p194 :110?>     when "debug"
+1.9.3p194 :006?>     1.9.3p194 :111?>     puts "debug"
+1.9.3p194 :007?>     1.9.3p194 :112?>     when "quit","exit"
+1.9.3p194 :008?>     1.9.3p194 :113?>     exit
+1.9.3p194 :009?>     1.9.3p194 :114?>     else
+1.9.3p194 :010 >       1.9.3p194 :115 >       print "illegal commant: #{input_line}"
+1.9.3p194 :011?>     1.9.3p194 :116?>     end
+1.9.3p194 :012?>   1.9.3p194 :117?>   end
+SyntaxError: (irb):4: no .<digit> floating literal anymore; put 0 before dot
+1.9.3p194 :109?>   case input_line
+    ^
+(irb):4: syntax error, unexpected tINTEGER
+1.9.3p194 :109?>   case input_line
+     ^
+(irb):5: syntax error, unexpected tFLOAT, expecting keyword_when
+1.9.3p194 :110?>     when "debug"
+   ^
+(irb):5: no .<digit> floating literal anymore; put 0 before dot
+1.9.3p194 :110?>     when "debug"
+    ^
+(irb):6: no .<digit> floating literal anymore; put 0 before dot
+1.9.3p194 :111?>     puts "debug"
+    ^
+(irb):6: syntax error, unexpected tINTEGER
+1.9.3p194 :111?>     puts "debug"
+     ^
+(irb):7: no .<digit> floating literal anymore; put 0 before dot
+1.9.3p194 :112?>     when "quit","exit"
+    ^
+(irb):7: syntax error, unexpected tINTEGER
+1.9.3p194 :112?>     when "quit","exit"
+     ^
+(irb):7: syntax error, unexpected ',', expecting keyword_end
+1.9.3p194 :112?>     when "quit","exit"
+                                 ^
+(irb):8: no .<digit> floating literal anymore; put 0 before dot
+1.9.3p194 :113?>     exit
+    ^
+(irb):8: syntax error, unexpected tINTEGER
+1.9.3p194 :113?>     exit
+     ^
+(irb):9: no .<digit> floating literal anymore; put 0 before dot
+1.9.3p194 :114?>     else
+    ^
+(irb):9: syntax error, unexpected tINTEGER
+1.9.3p194 :114?>     else
+     ^
+(irb):10: no .<digit> floating literal anymore; put 0 before dot
+1.9.3p194 :115 >       print "illegal commant: #{input_line}"
+    ^
+(irb):10: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+1.9.3p194 :115 >       print "illegal commant: #{input_line}"
+                              ^
+(irb):11: no .<digit> floating literal anymore; put 0 before dot
+1.9.3p194 :116?>     end
+    ^
+(irb):11: syntax error, unexpected tINTEGER
+1.9.3p194 :116?>     end
+     ^
+(irb):12: no .<digit> floating literal anymore; put 0 before dot
+1.9.3p194 :117?>   end
+    ^
+	from /home/ivanchen/.rvm/rubies/ruby-1.9.3-p194/bin/irb:16:in `<main>'
+1.9.3p194 :013 > 
+1.9.3p194 :014 >   def sum(a, *b)
+1.9.3p194 :015?>   total1 = a+b[0]
+1.9.3p194 :016?>   puts "Total 1 = #{total1}"
+1.9.3p194 :017?>   total2 = a + b[1]
+1.9.3p194 :018?>   puts "Total 2 = #{total2}"
+1.9.3p194 :019?>   total3 = a + b[2]
+1.9.3p194 :020?>   puts "Total 3 = #{total3}"
+1.9.3p194 :021?>   return total1, total2,total3
+1.9.3p194 :022?>   end
+ => nil 
+1.9.3p194 :023 > sum (2,3,4,5)
+SyntaxError: (irb):23: syntax error, unexpected ',', expecting ')'
+sum (2,3,4,5)
+       ^
+	from /home/ivanchen/.rvm/rubies/ruby-1.9.3-p194/bin/irb:16:in `<main>'
+1.9.3p194 :024 > sum(2,3,4,5)
+Total 1 = 5
+Total 2 = 6
+Total 3 = 7
+ => [5, 6, 7] 
+1.9.3p194 :025 > sum(2,3,4,5,6,7)
+Total 1 = 5
+Total 2 = 6
+Total 3 = 7
+ => [5, 6, 7] 
+1.9.3p194 :026 > a=[1,2,3]
+ => [1, 2, 3] 
+1.9.3p194 :027 > sum(0,a)
+TypeError: Array can't be coerced into Fixnum
+	from (irb):15:in `+'
+	from (irb):15:in `sum'
+	from (irb):27
+	from /home/ivanchen/.rvm/rubies/ruby-1.9.3-p194/bin/irb:16:in `<main>'
+1.9.3p194 :028 > sum(0,1)
+Total 1 = 1
+TypeError: nil can't be coerced into Fixnum
+	from (irb):17:in `+'
+	from (irb):17:in `sum'
+	from (irb):28
+	from /home/ivanchen/.rvm/rubies/ruby-1.9.3-p194/bin/irb:16:in `<main>'
+1.9.3p194 :029 > sum(0,1)
+Total 1 = 1
+TypeError: nil can't be coerced into Fixnum
+	from (irb):17:in `+'
+	from (irb):17:in `sum'
+	from (irb):29
+	from /home/ivanchen/.rvm/rubies/ruby-1.9.3-p194/bin/irb:16:in `<main>'
+1.9.3p194 :030 > sum(0,1,2,3)
+Total 1 = 1
+Total 2 = 2
+Total 3 = 3
+ => [1, 2, 3] 
+1.9.3p194 :031 > sum(0,1,2)
+Total 1 = 1
+Total 2 = 2
+TypeError: nil can't be coerced into Fixnum
+	from (irb):19:in `+'
+	from (irb):19:in `sum'
+	from (irb):31
+	from /home/ivanchen/.rvm/rubies/ruby-1.9.3-p194/bin/irb:16:in `<main>'
+1.9.3p194 :032 > a = [][]
+ArgumentError: wrong number of arguments (0 for 1..2)
+	from (irb):32:in `[]'
+	from (irb):32
+	from /home/ivanchen/.rvm/rubies/ruby-1.9.3-p194/bin/irb:16:in `<main>'
+1.9.3p194 :033 > a = []
+ => [] 
+1.9.3p194 :034 > a=[[][]]
+ArgumentError: wrong number of arguments (0 for 1..2)
+	from (irb):34:in `[]'
+	from (irb):34
+	from /home/ivanchen/.rvm/rubies/ruby-1.9.3-p194/bin/irb:16:in `<main>'
+1.9.3p194 :035 > a=[[0,1],[1,2]]
+ => [[0, 1], [1, 2]] 
+1.9.3p194 :036 > a[0][2]
+ => nil 
+1.9.3p194 :037 > a[0][1]
+ => 1 
+1.9.3p194 :038 > a = [[[0,1],[1,2]],[[2,3],[3,4]]]
+ => [[[0, 1], [1, 2]], [[2, 3], [3, 4]]] 
+1.9.3p194 :039 > a[0][0][0]
+ => 0 
+1.9.3p194 :040 > a[0][1][2]
+ => nil 
+1.9.3p194 :041 > a[0][1][1]
+ => 2 
+1.9.3p194 :042 > a.empty
+NoMethodError: undefined method `empty' for [[[0, 1], [1, 2]], [[2, 3], [3, 4]]]:Array
+	from (irb):42
+	from /home/ivanchen/.rvm/rubies/ruby-1.9.3-p194/bin/irb:16:in `<main>'
+1.9.3p194 :043 > a.empty?
+ => false 
+1.9.3p194 :044 > a!.empty?
+NoMethodError: undefined method `a!' for main:Object
+	from (irb):44
+	from /home/ivanchen/.rvm/rubies/ruby-1.9.3-p194/bin/irb:16:in `<main>'
+1.9.3p194 :045 > !a.empty?
+ => true 
