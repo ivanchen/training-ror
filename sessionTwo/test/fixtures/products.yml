@@ -4,8 +4,39 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+
+one:
+  id: 1
+  name: "Gundam"
+  price: 2000
+  description: "this is description, so you can read it"
+  user_id: 1
+
+two: 
+  id: 2
+  name: "Protos"
+  price: 150
+  description: "this is description, so you can read it"
+  user_id: 3
+
+three: 
+  id: 3
+  name: "Terran"
+  price: 100
+  description: "this is description, so you can read it"
+  user_id: 4
+
+four: 
+  id: 4
+  name: "Zerg"
+  price: 50
+  description: "this is description, so you can read it"
+  user_id: 5
+
+five: 
+  id: 5
+  name: "Vagan"
+  price: 1500
+  description: "this is description, so you can read it"
+  user_id: 2
+

@@ -4,8 +4,38 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+
+one:
+  id: 1
+  title: "A Little Ugly Duck" 
+  body: "content of article A Little Ugly Duck" 
+  rating: 3
+  user_id: 1
+
+two:
+  id: 2
+  title: "Avatar: The Legend of Aang" 
+  body: "content of article Avatar: The Legend of Aang" 
+  rating: 5
+  user_id: 5
+  
+three:
+  id: 3
+  title: "Beauty And The Beast" 
+  body: "content of article Beauty And The Beast" 
+  rating: 3
+  user_id: 3
+
+four:
+  id: 4
+  title: "Si Pitung" 
+  body: "content of article Si Pitung" 
+  rating: 3
+  user_id: 1
+
+five:
+  id: 5
+  title: "Pinochio" 
+  body: "content of article Pinochio" 
+  rating: 4
+  user_id: 2

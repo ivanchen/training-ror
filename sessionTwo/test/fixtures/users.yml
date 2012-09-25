@@ -1,11 +1,61 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 # This model initially had no columns defined.  If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
+# model remove the '{' from the fixture names and add the columns immediately
+# below each fixture per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+one:
+  id: 1
+  first_name: "Ivan" 
+  last_name: "Andhika" 
+  email: "ivan.andhika@kiranatama.com" 
+  username: "ivan" 
+  address: "gg Sereh 21"
+  age: "22"
+  birthday: "1990-08-05"
+  country_id: 5
+
+two:
+  id: 2
+  first_name: "Rake" 
+  last_name: "Zeheart" 
+  email: "rake.zeheart@tror.org" 
+  username: "rake" 
+  address: "wgs 1"
+  age: "1"
+  birthday: "2011-09-23"
+  country_id: 4
+
+three:
+  id: 3
+  first_name: "Seed" 
+  last_name: "Bloomberg" 
+  email: "seed.bloomberg@tror.org" 
+  username: "seed" 
+  address: "wgs 2"
+  age: "1"
+  birthday: "2011-09-23"
+  country_id: 1
+
+four:
+  id: 4
+  first_name: "Migrate" 
+  last_name: "Toheaven" 
+  email: "migrate.toheave@tror.org" 
+  username: "migz" 
+  address: "wgs 3"
+  age: "1"
+  birthday: "2011-09-22"
+  country_id: 3
+
+five:
+  id: 5
+  first_name: "Gitz" 
+  last_name: "Hubz" 
+  email: "gitz.hubz@tror.org" 
+  username: "gitz" 
+  address: "wgs 4"
+  age: "1"
+  birthday: "2011-09-20"
+  country_id: 2
+

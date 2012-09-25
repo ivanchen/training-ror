@@ -4,8 +4,27 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+one:
+  id: 1
+  code: "id" 
+  name: "Indonesia" 
+
+two:
+  id: 2
+  code: "sg" 
+  name: "Singapore" 
+
+three:
+  id: 3
+  code: "au" 
+  name: "Australia" 
+
+four:
+  id: 4
+  code: "be" 
+  name: "Belgia" 
+
+five:
+  id: 5
+  code: "cn" 
+  name: "China" 
