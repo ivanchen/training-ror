@@ -5,6 +5,8 @@
 coverage
 InstalledFiles
 lib/bundler/man
+sessionOne/config/database.yml
+sessionTwo/config/database.yml
 pkg
 rdoc
 spec/reports

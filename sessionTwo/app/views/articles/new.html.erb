@@ -1,0 +1,10 @@
+<h1>Article#new</h1>
+<p><%=@status%></p>
+
+<%#= form_tag(articles_create_path, :method => :post) do %> 
+<%= form_for @article do |f|%> 
+  Title: <%= f.text_field :title %><br/>
+  Body: <%= f.text_area :body %>
+  <%= f.hidden_field :user_id , :value => 1%>
+  <%=f.submit :create%>
+<% end %>

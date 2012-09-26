@@ -1,0 +1,12 @@
+<h1>Article#edit <%=@article_id.title%></h1>
+<p>Find me in app/views/article/edit.html.erb</p>
+
+<%#= form_tag(articles_update_path, :method => :post, :id =>1) do %>  
+<%= form_for @article_id do |f| %>
+  <%= f.hidden_field :id , :value => @article_id.id %><br/>
+  Title: <%= f.text_field :title, :value => @article_id.title %><br/>
+  Body: <%= f.text_area :body, :value => @article_id.body %><br/>
+  Rating: <%= f.text_field :rating,:value =>  @article_id.rating%><br/>
+  <%= f.hidden_field :user_id , :value =>@article_id.user_id%><br/>
+  <%=f.submit :update%><br/>
+<% end %>
