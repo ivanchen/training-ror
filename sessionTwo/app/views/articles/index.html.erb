@@ -52,9 +52,9 @@
 					<%=article.user.first_name if article.user.present?%>
 			</td>
 			<td>
-				<%= link_to "Edit", edit_article_path(article.id) %>
+				<%= link_to "Edit", edit_article_path(article.id) %> | 
 				<% if article.user.id==current_user.id%>
-				<%= link_to "Delete", article_path(article.id), :method => :delete %>
+				<%= link_to "Delete", article_path(article.id), :method => :delete %> | 
 				<% end %>
 				<%= link_to "Show Comments", comment_path(article.id), :method => :get   %>
 			</td>

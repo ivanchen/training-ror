@@ -1,17 +1,39 @@
 <!--This section is to show all comments that owned by the article  -->
-<div id="comments">
-  <% unless(@comments.nil?)%>
-    <% @comments.each do |comment| %>
-      <%= comment.content %><br />
-    <% end %>
-  <% end %>
-</div><br /><br />
+<div class="wrap">
+	<h1>Comment for Article: <%=@article.title%></h1>
 
-
-<% unless(current_user.nil?)%>
-   <%= form_for @comment, :url => comments_path do |f| -%>
-      <%= f.text_area :content %>
-      <%= f.hidden_field :article_id, :value => @article.id %>
-      <%= f.submit "comment" %>
-  <% end -%>
-<% end %>
+	  <% unless(@comments.nil?)%>
+	  <table>
+		<tr>
+			<th>
+				No.
+			</th>
+			<th>
+				Content
+			</th>
+		</tr>	
+		<% i=1 %>
+	    <% @comments.each do |comment| %>
+	    <% if i%2==0%>
+	    <tr class="genap">
+    	<% else %>
+    	<tr class="ganjil">
+    	<% end %>
+	    	<td><%=i%></td>
+	      	<td><%= comment.content %></td>
+        </tr>
+        <% i+=1 %>
+	    <% end %>
+		
+	    </table>
+	  <% end %>
+	
+	<h2>Post New Comment</h2>
+	<% unless(current_user.nil?)%>
+	   <%= form_for @comment, :url => comments_path do |f| -%>
+	      <%= f.text_area :content , :style => "width:100%; height: 100px; box-shadow: inset 2px 2px 2px #333;"%>
+	      <%= f.hidden_field :article_id, :value => @article.id %><br/>
+	      <%= f.submit "post" %>
+	  <% end -%>
+	<% end %>
+</div>

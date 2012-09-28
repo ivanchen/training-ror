@@ -43,10 +43,12 @@ a{
 
 .menu ul{
     margin: 0; padding: 0;
-    float: left;}
+    float: left;
+}
  
 .menu ul li{
-    display: inline;}
+    display: inline;
+}
  
 .menu ul li a{
     float: left; text-decoration: none;
@@ -69,8 +71,20 @@ a{
 }
  
 .menu ul li a:visited, .status a:visited{
-    color: white;}
+    color: white;
+}
  
 .menu ul li a:hover, .menu ul li .current, .status a:hover{
     color: #FFFFFF;
-    background-color:#333;}
+    background-color:#333;
+}
+input[type="submit"]{
+	background: #A60000;
+	width: 100px;
+	padding: 10.5px 11px;
+	border: none;
+	color: #FFFFFF;
+}
+input[type="text"],input[type="password"], textarea{
+	width: 300px;
+}
