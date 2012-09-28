@@ -1,0 +1,109 @@
+
+PENGERJAAM PROBLEM 11-15
+
+
+===================================HASIL TEST PROBLEM 11============================================
+ivanchen@WGS-PC:~/Project/training-ror/sessionTwo$ rails c
+Loading development environment (Rails 3.2.8)
+
+1.9.3p194 :001 > @Product_Greater_Than_1000 = Product.price_greater_than(1000)
+  Product Load (0.2ms)  SELECT `products`.* FROM `products` WHERE (price > 1000)
+ => [#<Product id: 1, name: "Gundam", price: 2000, description: "this is description, so you can read it", user_id: 1>, #<Product id: 5, name: "Vagan", price: 1500, description: "this is description, so you can read it", user_id: 2>] 
+
+1.9.3p194 :002 > @Article_by_Rating = Article.rating(3)
+  Article Load (0.1ms)  SELECT `articles`.* FROM `articles` WHERE (rating = 3)
+ => [#<Article id: 1, title: "A Little Ugly Duck", body: "content of article A Little Ugly Duck", rating: 3, user_id: 1>, #<Article id: 3, title: "Beauty And The Beast", body: "content of article Beauty And The Beast", rating: 3, user_id: 3>, #<Article id: 4, title: "Si Pitung", body: "content of article Si Pitung", rating: 3, user_id: 1>] 
+
+1.9.3p194 :003 > @Product_Red = Product.likeRed()
+  Product Load (0.2ms)  SELECT `products`.* FROM `products` WHERE (description like '%red%')
+ => [] 
+===================================END OF HASIL TEST PROBLEM 11=====================================
+
+
+===================================HASIL TEST PROBLEM 12============================================
+1.9.3p194 :007 > user = User.find(1)
+  User Load (0.4ms)  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+ => #<User id: 1, first_name: "Ivan", last_name: "Andhika", email: "ivan.andhika@kiranatama.com", username: "ivan", address: "gg Sereh 21", age: 22, birthday: "1990-08-05", country_id: 5> 
+
+1.9.3p194 :008 > full_address = user.show_full_address
+  Country Load (0.2ms)  SELECT `countries`.* FROM `countries` WHERE `countries`.`id` = 5 LIMIT 1
+ => "gg Sereh 21 China" 
+
+1.9.3p194 :026 > @articles = Article.find(1)
+  Article Load (0.1ms)  SELECT `articles`.* FROM `articles` WHERE `articles`.`id` = 1 LIMIT 1
+ => #<Article id: 1, title: "A Little Ugly Duck", body: "content of article A Little Ugly Duck", rating: 3, user_id: 1> 
+
+1.9.3p194 :027 > @articles.content_more_100_char
+ => "tidak ada data yang lebih dari 100 karakter" 
+===================================END OF HASIL TEST PROBLEM 12====================================
+
+
+===================================HASIL TEST PROBLEM 13============================================
+
+1.9.3p194 :008 > user = User.find(1)
+  User Load (0.1ms)  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+ => #<User id: 1, first_name: "Ivan", last_name: "Andhika", email: "ivan.andhika@kiranatama.com", username: "ivan", address: "gg Sereh 21", age: 22, birthday: "1990-08-05", country_id: 5> 
+1.9.3p194 :009 > user.my_countries_story
+  Article Load (0.3ms)  SELECT `articles`.* FROM `articles` WHERE `articles`.`user_id` = 1 AND (title like '%my_country%')
+ => [] 
+===================================END OF HASIL TEST PROBLEM 13====================================
+
+
+===================================HASIL TEST PROBLEM 14============================================
+1.9.3p194 :001 > @User = User.create({ :first_name => "Gladys", :last_name => "Langi", :email => "gladys.langi@gmail.com"})
+   (0.1ms)  BEGIN
+  User Exists (0.5ms)  SELECT 1 AS one FROM `users` WHERE `users`.`first_name` = BINARY 'Gladys' LIMIT 1
+  User Exists (0.4ms)  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'gladys.langi@gmail.com' LIMIT 1
+  SQL (0.2ms)  INSERT INTO `users` (`address`, `age`, `birthday`, `country_id`, `email`, `first_name`, `last_name`, `username`) VALUES (NULL, NULL, NULL, NULL, 'gladys.langi@gmail.com', 'Gladys', 'Langi', NULL)
+   (62.8ms)  COMMIT
+ => #<User id: 6, first_name: "Gladys", last_name: "Langi", email: "gladys.langi@gmail.com", username: nil, address: nil, age: nil, birthday: nil, country_id: nil> 
+
+1.9.3p194 :002 > countries = Country.create({ :code => "usa", :name => "America" })
+   (0.1ms)  BEGIN
+  SQL (0.3ms)  INSERT INTO `countries` (`code`, `name`) VALUES ('usa', 'America')
+   (51.5ms)  COMMIT
+ => #<Country id: 6, code: "usa", name: "America"> 
+
+1.9.3p194 :003 > countries = Country.create({ :code => "id", :name => "Indonesia" })
+   (0.1ms)  BEGIN
+  SQL (0.2ms)  INSERT INTO `countries` (`code`, `name`) VALUES ('id', 'Indonesia')
+   (56.9ms)  COMMIT
+ => #<Country id: 7, code: "id", name: "Indonesia"> 
+
+1.9.3p194 :004 > countries = Country.create({ :code => "frc", :name => "French" })
+   (0.1ms)  BEGIN
+  SQL (0.2ms)  INSERT INTO `countries` (`code`, `name`) VALUES ('frc', 'French')
+   (43.0ms)  COMMIT
+ => #<Country id: 8, code: "frc", name: "French"> 
+
+1.9.3p194 :005 > countries = Country.create({ :code => "nz", :name => "New Zealand" })
+   (0.1ms)  BEGIN
+   (0.1ms)  ROLLBACK
+ => #<Country id: nil, code: "nz", name: "New Zealand"> 
+
+1.9.3p194 :006 > articles = Article.create({ :body => "content"})
+   (0.1ms)  BEGIN
+  Article Exists (0.3ms)  SELECT 1 AS one FROM `articles` WHERE `articles`.`title` IS NULL LIMIT 1
+   (0.9ms)  ROLLBACK
+ => #<Article id: nil, title: nil, body: "content", rating: nil, user_id: nil> 
+
+1.9.3p194 :007 > articles = Article.create({ :title => "content"})
+   (0.1ms)  BEGIN
+  Article Exists (0.3ms)  SELECT 1 AS one FROM `articles` WHERE `articles`.`title` = BINARY 'content' LIMIT 1
+  SQL (0.2ms)  INSERT INTO `articles` (`body`, `rating`, `title`, `user_id`) VALUES (NULL, NULL, 'content', NULL)
+   (39.3ms)  COMMIT
+ => #<Article id: 8, title: "content", body: nil, rating: nil, user_id: nil> 
+
+1.9.3p194 :008 > articles = Article.create({ :title => "content"})
+   (0.2ms)  BEGIN
+  Article Exists (0.3ms)  SELECT 1 AS one FROM `articles` WHERE `articles`.`title` = BINARY 'content' LIMIT 1
+   (0.1ms)  ROLLBACK
+ => #<Article id: nil, title: "content", body: nil, rating: nil, user_id: nil> 
+
+ 1.9.3p194 :002 > articles = Article.create({ :title => "empty"})
+   (0.1ms)  BEGIN
+  Article Exists (0.3ms)  SELECT 1 AS one FROM `articles` WHERE `articles`.`title` = BINARY 'empty' LIMIT 1
+   (0.2ms)  ROLLBACK
+ => #<Article id: nil, title: "empty", body: nil, rating: nil, user_id: nil> 
+===================================END OF HASIL TEST PROBLEM 14====================================
+

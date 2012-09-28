@@ -1,0 +1,216 @@
+ivanchen@WGS-PC:~/Project/training-ror/sessionTwo$ rails c
+Loading development environment (Rails 3.2.8)
+1.9.3p194 :001 > User.find(1)
+  User Load (0.3ms)  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+ => #<User id: 1, first_name: "Ivan", last_name: "Andhika", email: "ivan.andhika@kiranatama.com", username: "ivan", address: "gg Sereh 21", age: 22, birthday: "1990-08-05"> 
+1.9.3p194 :002 > user = User.new
+ => #<User id: nil, first_name: nil, last_name: nil, email: nil, username: nil, address: nil, age: nil, birthday: nil> 
+1.9.3p194 :003 > user = User.new
+ => #<User id: nil, first_name: nil, last_name: nil, email: nil, username: nil, address: nil, age: nil, birthday: nil> 
+1.9.3p194 :004 > users = User.create({:first_name => "Ivan", :last_name => "Chen", :email => "ivan.andhika.c@gmail.com", :username => "ivanchen", :address => "gg Sereh 21", :age => "22", :birthday => "1990-08-05"})
+   (0.1ms)  BEGIN
+  SQL (0.2ms)  INSERT INTO `users` (`address`, `age`, `birthday`, `email`, `first_name`, `last_name`, `username`) VALUES ('gg Sereh 21', 22, '1990-08-05', 'ivan.andhika.c@gmail.com', 'Ivan', 'Chen', 'ivanchen')
+   (44.5ms)  COMMIT
+ => #<User id: 6, first_name: "Ivan", last_name: "Chen", email: "ivan.andhika.c@gmail.com", username: "ivanchen", address: "gg Sereh 21", age: 22, birthday: "1990-08-05"> 
+1.9.3p194 :005 > comments = Comment.new(:content => "LOL")
+ => #<Comment id: nil, content: "LOL"> 
+1.9.3p194 :006 > comments.save
+   (0.1ms)  BEGIN
+  SQL (0.3ms)  INSERT INTO `comments` (`content`) VALUES ('LOL')
+   (42.8ms)  COMMIT
+ => true 
+1.9.3p194 :007 > comments = Comment.new
+ => #<Comment id: nil, content: nil> 
+1.9.3p194 :008 > comments.content = "Amazing"
+ => "Amazing" 
+1.9.3p194 :009 > comments.save
+   (0.1ms)  BEGIN
+  SQL (0.3ms)  INSERT INTO `comments` (`content`) VALUES ('Amazing')
+   (29.7ms)  COMMIT
+ => true 
+1.9.3p194 :010 > User.find(6)
+  User Load (0.4ms)  SELECT `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1
+ => #<User id: 6, first_name: "Ivan", last_name: "Chen", email: "ivan.andhika.c@gmail.com", username: "ivanchen", address: "gg Sereh 21", age: 22, birthday: "1990-08-05"> 
+1.9.3p194 :011 > User.where("name = 'ivan' AND age=22")
+  User Load (12.4ms)  SELECT `users`.* FROM `users` WHERE (name = 'ivan' AND age=22)
+Mysql2::Error: Unknown column 'name' in 'where clause': SELECT `users`.* FROM `users`  WHERE (name = 'ivan' AND age=22)
+ActiveRecord::StatementInvalid: Mysql2::Error: Unknown column 'name' in 'where clause': SELECT `users`.* FROM `users`  WHERE (name = 'ivan' AND age=22)
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activerecord-3.2.8/lib/active_record/connection_adapters/abstract_mysql_adapter.rb:245:in `query'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activerecord-3.2.8/lib/active_record/connection_adapters/abstract_mysql_adapter.rb:245:in `block in execute'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activerecord-3.2.8/lib/active_record/connection_adapters/abstract_adapter.rb:280:in `block in log'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activesupport-3.2.8/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activerecord-3.2.8/lib/active_record/connection_adapters/abstract_adapter.rb:275:in `log'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activerecord-3.2.8/lib/active_record/connection_adapters/abstract_mysql_adapter.rb:245:in `execute'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activerecord-3.2.8/lib/active_record/connection_adapters/mysql2_adapter.rb:211:in `execute'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activerecord-3.2.8/lib/active_record/connection_adapters/mysql2_adapter.rb:215:in `exec_query'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activerecord-3.2.8/lib/active_record/connection_adapters/mysql2_adapter.rb:224:in `select'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activerecord-3.2.8/lib/active_record/connection_adapters/abstract/database_statements.rb:18:in `select_all'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activerecord-3.2.8/lib/active_record/connection_adapters/abstract/query_cache.rb:63:in `select_all'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activerecord-3.2.8/lib/active_record/querying.rb:38:in `block in find_by_sql'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activerecord-3.2.8/lib/active_record/explain.rb:40:in `logging_query_plan'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activerecord-3.2.8/lib/active_record/querying.rb:37:in `find_by_sql'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activerecord-3.2.8/lib/active_record/relation.rb:171:in `exec_queries'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activerecord-3.2.8/lib/active_record/relation.rb:160:in `block in to_a'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activerecord-3.2.8/lib/active_record/explain.rb:33:in `logging_query_plan'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activerecord-3.2.8/lib/active_record/relation.rb:159:in `to_a'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activerecord-3.2.8/lib/active_record/relation.rb:498:in `inspect'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/railties-3.2.8/lib/rails/commands/console.rb:47:in `start'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/railties-3.2.8/lib/rails/commands/console.rb:8:in `start'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/railties-3.2.8/lib/rails/commands.rb:41:in `<top (required)>'
+	from script/rails:6:in `require'
+	from script/rails:6:in `<main>'1.9.3p194 :012 > User.where("name = 'iwhere("name 
+1.9.3p194 :013 >   User.where("first_name = 'ivan' AND age=22")
+  User Load (0.4ms)  SELECT `users`.* FROM `users` WHERE (first_name = 'ivan' AND age=22)
+ => [#<User id: 1, first_name: "Ivan", last_name: "Andhika", email: "ivan.andhika@kiranatama.com", username: "ivan", address: "gg Sereh 21", age: 22, birthday: "1990-08-05">, #<User id: 6, first_name: "Ivan", last_name: "Chen", email: "ivan.andhika.c@gmail.com", username: "ivanchen", address: "gg Sereh 21", age: 22, birthday: "1990-08-05">] 
+1.9.3p194 :014 > User.find_by_age(22)
+  User Load (0.3ms)  SELECT `users`.* FROM `users` WHERE `users`.`age` = 22 LIMIT 1
+ => #<User id: 1, first_name: "Ivan", last_name: "Andhika", email: "ivan.andhika@kiranatama.com", username: "ivan", address: "gg Sereh 21", age: 22, birthday: "1990-08-05"> 
+1.9.3p194 :015 > User.find_all_by_age(22)
+  User Load (0.4ms)  SELECT `users`.* FROM `users` WHERE `users`.`age` = 22
+ => [#<User id: 1, first_name: "Ivan", last_name: "Andhika", email: "ivan.andhika@kiranatama.com", username: "ivan", address: "gg Sereh 21", age: 22, birthday: "1990-08-05">, #<User id: 6, first_name: "Ivan", last_name: "Chen", email: "ivan.andhika.c@gmail.com", username: "ivanchen", address: "gg Sereh 21", age: 22, birthday: "1990-08-05">] 
+1.9.3p194 :016 > User.find_all_by_age_and_name(22,"Ivan")
+NoMethodError: undefined method `find_all_by_age_and_name' for #<Class:0x94b3454>
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activerecord-3.2.8/lib/active_record/dynamic_matchers.rb:27:in `method_missing'
+	from (irb):16
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/railties-3.2.8/lib/rails/commands/console.rb:47:in `start'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/railties-3.2.8/lib/rails/commands/console.rb:8:in `start'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/railties-3.2.8/lib/rails/commands.rb:41:in `<top (required)>'
+	from script/rails:6:in `require'
+	from script/rails:6:in `<main>'
+1.9.3p194 :017 > User.find_all_by_age_and_first_name(22,"Ivan")
+  User Load (0.4ms)  SELECT `users`.* FROM `users` WHERE `users`.`age` = 22 AND `users`.`first_name` = 'Ivan'
+ => [#<User id: 1, first_name: "Ivan", last_name: "Andhika", email: "ivan.andhika@kiranatama.com", username: "ivan", address: "gg Sereh 21", age: 22, birthday: "1990-08-05">, #<User id: 6, first_name: "Ivan", last_name: "Chen", email: "ivan.andhika.c@gmail.com", username: "ivanchen", address: "gg Sereh 21", age: 22, birthday: "1990-08-05">] 
+1.9.3p194 :018 > User.find_all_by_age_and_first_name_and_username(22,"Ivan","ivanchen")
+  User Load (0.4ms)  SELECT `users`.* FROM `users` WHERE `users`.`age` = 22 AND `users`.`first_name` = 'Ivan' AND `users`.`username` = 'ivanchen'
+ => [#<User id: 6, first_name: "Ivan", last_name: "Chen", email: "ivan.andhika.c@gmail.com", username: "ivanchen", address: "gg Sereh 21", age: 22, birthday: "1990-08-05">] 
+1.9.3p194 :019 > average = User.age(:age)
+NoMethodError: undefined method `age' for #<Class:0x94b3454>
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activerecord-3.2.8/lib/active_record/dynamic_matchers.rb:50:in `method_missing'
+	from (irb):19
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/railties-3.2.8/lib/rails/commands/console.rb:47:in `start'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/railties-3.2.8/lib/rails/commands/console.rb:8:in `start'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/railties-3.2.8/lib/rails/commands.rb:41:in `<top (required)>'
+	from script/rails:6:in `require'
+	from script/rails:6:in `<main>'
+1.9.3p194 :020 > average = User.average(:age)
+   (0.4ms)  SELECT AVG(`users`.`age`) AS avg_id FROM `users` 
+ => #<BigDecimal:9bbcde0,'0.8E1',9(18)> 
+1.9.3p194 :021 > average = Age.average(:age)
+NameError: uninitialized constant Age
+	from (irb):21
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/railties-3.2.8/lib/rails/commands/console.rb:47:in `start'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/railties-3.2.8/lib/rails/commands/console.rb:8:in `start'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/railties-3.2.8/lib/rails/commands.rb:41:in `<top (required)>'
+	from script/rails:6:in `require'
+	from script/rails:6:in `<main>'
+1.9.3p194 :022 > max = User.maximum(:age)
+   (0.4ms)  SELECT MAX(`users`.`age`) AS max_id FROM `users` 
+ => 22 
+1.9.3p194 :023 > min = User.minimum(:age)
+   (0.4ms)  SELECT MIN(`users`.`age`) AS min_id FROM `users` 
+ => 1 
+1.9.3p194 :024 > total = User.sum(:age)
+   (0.4ms)  SELECT SUM(`users`.`age`) AS sum_id FROM `users` 
+ => 48 
+1.9.3p194 :025 > number = User.count
+   (0.3ms)  SELECT COUNT(*) FROM `users` 
+ => 6 
+1.9.3p194 :026 > users = User.find_by_sql("SELECT * FROM users u WHERE user.first_name like '%i%' AND u.age>1 ORDER BY u.first_name ASC")
+  User Load (18.9ms)  SELECT * FROM users u WHERE user.first_name like '%i%' AND u.age>1 ORDER BY u.first_name ASC
+Mysql2::Error: Unknown column 'user.first_name' in 'where clause': SELECT * FROM users u WHERE user.first_name like '%i%' AND u.age>1 ORDER BY u.first_name ASC
+ActiveRecord::StatementInvalid: Mysql2::Error: Unknown column 'user.first_name' in 'where clause': SELECT * FROM users u WHERE user.first_name like '%i%' AND u.age>1 ORDER BY u.first_name ASC
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activerecord-3.2.8/lib/active_record/connection_adapters/abstract_mysql_adapter.rb:245:in `query'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activerecord-3.2.8/lib/active_record/connection_adapters/abstract_mysql_adapter.rb:245:in `block in execute'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activerecord-3.2.8/lib/active_record/connection_adapters/abstract_adapter.rb:280:in `block in log'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activesupport-3.2.8/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activerecord-3.2.8/lib/active_record/connection_adapters/abstract_adapter.rb:275:in `log'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activerecord-3.2.8/lib/active_record/connection_adapters/abstract_mysql_adapter.rb:245:in `execute'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activerecord-3.2.8/lib/active_record/connection_adapters/mysql2_adapter.rb:211:in `execute'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activerecord-3.2.8/lib/active_record/connection_adapters/mysql2_adapter.rb:215:in `exec_query'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activerecord-3.2.8/lib/active_record/connection_adapters/mysql2_adapter.rb:224:in `select'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activerecord-3.2.8/lib/active_record/connection_adapters/abstract/database_statements.rb:18:in `select_all'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activerecord-3.2.8/lib/active_record/connection_adapters/abstract/query_cache.rb:63:in `select_all'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activerecord-3.2.8/lib/active_record/querying.rb:38:in `block in find_by_sql'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activerecord-3.2.8/lib/active_record/explain.rb:33:in `logging_query_plan'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activerecord-3.2.8/lib/active_record/querying.rb:37:in `find_by_sql'
+	from (irb):26
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/railties-3.2.8/lib/rails/commands/console.rb:47:in `start'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/railties-3.2.8/lib/rails/commands/console.rb:8:in `start'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/railties-3.2.8/lib/rails/commands.rb:41:in `<top (required)>'
+	from script/rails:6:in `require'
+	from scrinumber = User.count   (0.1ms)  SELECT COUNT(*) FROM `users` 
+ => 6 
+1.9.3p194 :028 > users = User.find_by_sql("SELECT * FROM users u WHERE u.first_name like '%i%' AND u.age>1 ORDER BY u.first_name ASC")
+  User Load (0.5ms)  SELECT * FROM users u WHERE u.first_name like '%i%' AND u.age>1 ORDER BY u.first_name ASC
+ => [#<User id: 1, first_name: "Ivan", last_name: "Andhika", email: "ivan.andhika@kiranatama.com", username: "ivan", address: "gg Sereh 21", age: 22, birthday: "1990-08-05">, #<User id: 6, first_name: "Ivan", last_name: "Chen", email: "ivan.andhika.c@gmail.com", username: "ivanchen", address: "gg Sereh 21", age: 22, birthday: "1990-08-05">] 
+1.9.3p194 :029 > user = User.find(6)
+  User Load (0.2ms)  SELECT `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1
+ => #<User id: 6, first_name: "Ivan", last_name: "Chen", email: "ivan.andhika.c@gmail.com", username: "ivanchen", address: "gg Sereh 21", age: 22, birthday: "1990-08-05"> 
+1.9.3p194 :030 > user.update_attribute(:address, "Astana Anyar")
+   (0.1ms)  BEGIN
+   (34.0ms)  UPDATE `users` SET `address` = 'Astana Anyar' WHERE `users`.`id` = 6
+   (67.2ms)  COMMIT
+ => true 
+1.9.3p194 :031 > user = User.find(6)
+  User Load (0.5ms)  SELECT `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1
+ => #<User id: 6, first_name: "Ivan", last_name: "Chen", email: "ivan.andhika.c@gmail.com", username: "ivanchen", address: "Astana Anyar", age: 22, birthday: "1990-08-05"> 
+1.9.3p194 :032 > user.update_attribute(:address, "Astana Anyar, Gg. Sereh 21", :birthday, "1990-05-08")
+ArgumentError: wrong number of arguments (4 for 2)
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activerecord-3.2.8/lib/active_record/persistence.rb:180:in `update_attribute'
+	from (irb):32
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/railties-3.2.8/lib/rails/commands/console.rb:47:in `start'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/railties-3.2.8/lib/rails/commands/console.rb:8:in `start'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/railties-3.2.8/lib/rails/commands.rb:41:in `<top (required)>'
+	from script/rails:6:in `require'
+	from script/rails:6:in `<main>'
+1.9.3p194 :033 > user = User.find(6)
+  User Load (0.2ms)  SELECT `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1
+ => #<User id: 6, first_name: "Ivan", last_name: "Chen", email: "ivan.andhika.c@gmail.com", username: "ivanchen", address: "Astana Anyar", age: 22, birthday: "1990-08-05"> 
+1.9.3p194 :034 > user.update_attributs(:address => "Astana Anyar, Gg. Sereh 21", :birthday => "1990-05-08")
+NoMethodError: undefined method `update_attributs' for #<User:0x99eadf0>
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activemodel-3.2.8/lib/active_model/attribute_methods.rb:407:in `method_missing'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/activerecord-3.2.8/lib/active_record/attribute_methods.rb:149:in `method_missing'
+	from (irb):34
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/railties-3.2.8/lib/rails/commands/console.rb:47:in `start'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/railties-3.2.8/lib/rails/commands/console.rb:8:in `start'
+	from /home/ivanchen/.rvm/gems/ruby-1.9.3-p194@training/gems/railties-3.2.8/lib/rails/commands.rb:41:in `<top (required)>'
+	from script/rails:6:in `require'
+	from script/rails:6:in `<main>'
+1.9.3p194 :035 > user = User.find(6)
+  User Load (0.2ms)  SELECT `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1
+ => #<User id: 6, first_name: "Ivan", last_name: "Chen", email: "ivan.andhika.c@gmail.com", username: "ivanchen", address: "Astana Anyar", age: 22, birthday: "1990-08-05"> 
+1.9.3p194 :036 > user.update_attributes(:address => "Astana Anyar, Gg. Sereh 21", :birthday => "1990-05-08")
+   (0.2ms)  BEGIN
+   (0.4ms)  UPDATE `users` SET `address` = 'Astana Anyar, Gg. Sereh 21', `birthday` = '1990-05-08' WHERE `users`.`id` = 6
+   (47.0ms)  COMMIT
+ => true 
+1.9.3p194 :037 > user = User.update(1, :address => "Astana Anyar, gg Sereh 21", :birthday => "1990-05-08")
+  User Load (0.4ms)  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+   (0.1ms)  BEGIN
+   (0.3ms)  UPDATE `users` SET `address` = 'Astana Anyar, gg Sereh 21', `birthday` = '1990-05-08' WHERE `users`.`id` = 1
+   (57.0ms)  COMMIT
+ => #<User id: 1, first_name: "Ivan", last_name: "Andhika", email: "ivan.andhika@kiranatama.com", username: "ivan", address: "Astana Anyar, gg Sereh 21", age: 22, birthday: "1990-05-08"> 
+1.9.3p194 :038 > users = User.update_all("age = 22", "age = 1")
+  SQL (57.4ms)  UPDATE `users` SET age = 22 WHERE (age = 1)
+ => 4 
+1.9.3p194 :039 > @comment = Comment.find_by_content("Amazing")
+  Comment Load (0.4ms)  SELECT `comments`.* FROM `comments` WHERE `comments`.`content` = 'Amazing' LIMIT 1
+ => #<Comment id: 12, content: "Amazing"> 
+1.9.3p194 :040 > @comment.destroy
+   (0.1ms)  BEGIN
+  SQL (0.7ms)  DELETE FROM `comments` WHERE `comments`.`id` = 12
+   (86.3ms)  COMMIT
+ => #<Comment id: 12, content: "Amazing"> 
+1.9.3p194 :041 > Comment.delete("LOL")
+  SQL (0.3ms)  DELETE FROM `comments` WHERE `comments`.`id` = 0
+ => 0 
+1.9.3p194 :042 > Comment.delete("11")
+  SQL (48.6ms)  DELETE FROM `comments` WHERE `comments`.`id` = 11
+ => 1 
+1.9.3p194 :043 > Comment.delete([6,7,8,9,10])
+  SQL (46.8ms)  DELETE FROM `comments` WHERE `comments`.`id` IN (6, 7, 8, 9, 10)
+ => 5 
+1.9.3p194 :044 > Country.delete_all(["code=?",'my'])
+  SQL (37.5ms)  DELETE FROM `countries` WHERE (code='my')
+ => 2 
+1.9.3p194 :045 > 
