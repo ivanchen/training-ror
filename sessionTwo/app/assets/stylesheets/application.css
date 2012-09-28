@@ -85,6 +85,12 @@ input[type="submit"]{
 	border: none;
 	color: #FFFFFF;
 }
+
+input[type="submit"]:hover{
+	background: #333;
+	color: #FFFFFF;
+}
+
 input[type="text"],input[type="password"], textarea{
 	width: 300px;
 }

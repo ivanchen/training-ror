@@ -14,6 +14,10 @@ SessionTwo::Application.routes.draw do
   get "log_out" => "sessions#destroy", :as => "log_out"
   resources :sessions 
 
+ namespace :admin do
+   resources :articles
+ end
+
   resources :comments
   # The priority is based upon order of creation:
   # first created -> highest priority.
