@@ -1,6 +1,20 @@
 SessionTwo::Application.routes.draw do
-  resources :articles
+  get "comments/show"
 
+  get "sessions/new"
+
+  get "users/new"
+
+  resources :articles
+  
+  get "sign_up" => "users#new", :as => "sign_up"
+  root :to => 'articles#index'
+  resources :users  
+  get "log_in" => "sessions#new", :as => "log_in" 
+  get "log_out" => "sessions#destroy", :as => "log_out"
+  resources :sessions 
+
+  resources :comments
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

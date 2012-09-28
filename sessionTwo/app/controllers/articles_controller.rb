@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_filter :require_login, :only => [:index, :new, :create, :edit, :update, :destroy]
   def create
     # raise params.inspect
     article = Article.new(params[:article])
@@ -12,10 +13,6 @@ class ArticlesController < ApplicationController
 
   def new
   	@article = Article.new
-  end
-
-  def index
-    @article = Article.new
   end
 
   def edit
@@ -40,8 +37,12 @@ class ArticlesController < ApplicationController
     id = params[:id]
     @article_id = Article.find(id)
     title=@article_id.title
-    if @article_id.destroy
-      redirect_to articles_path, :notice => "article: "<<title<<" berhasil dihapus"
+    if @article_id.user.id == current_user.id
+      if @article_id.destroy
+        redirect_to articles_path, :notice => "article: "<<title<<" berhasil dihapus"
+      else
+        redirect_to articles_path, :notice => "article: "<<title<<" gagal dihapus"
+      end
     else
       redirect_to articles_path, :notice => "article: "<<title<<" gagal dihapus"
     end

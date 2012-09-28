@@ -1,12 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SessionTwo</title>
+  <title>Latihan RoR</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div class="menu">
+		<div class="left">
+			
+			<ul>
+				<li>
+					<%= link_to "Articles", articles_path %>
+				</li>
+			</ul>
+
+		</div>
+		<div class="right">
+			<div class="status">
+				<%= raw(welcome_text) %>
+			</div>
+		</div>
+	</div>
+	<br class="clear">
+	
 
 <%= yield %>
 

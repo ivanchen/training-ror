@@ -1,10 +1,12 @@
-<style type="text/css">
-table td,th{
-	border: 1px solid #ccc;
-}
-</style>
+<div class="wrap">
 <p><%=flash[:notice]%></p>
+<div class="left">
+<%= link_to "Add Article", new_article_path %>
+</div>
+<div class="right">
 
+</div>
+<br class="clear"/>
 <table>
 	<tr>
 		<th>
@@ -26,8 +28,14 @@ table td,th{
 			Action
 		</th>
 	</tr>
+	<% i = 1 %>
 	<% @articles.each do  |article| %>
-		<tr>
+	    <% if i%2==0 %>
+		<tr class="genap">
+		<% else %>
+		<tr class="ganjil">
+		<% end %>
+		<% i+=1 %>
 			<td>
 				<%=article.id%>
 			</td>
@@ -45,7 +53,10 @@ table td,th{
 			</td>
 			<td>
 				<%= link_to "Edit", edit_article_path(article.id) %>
+				<% if article.user.id==current_user.id%>
 				<%= link_to "Delete", article_path(article.id), :method => :delete %>
+				<% end %>
+				<%= link_to "Show Comments", comment_path(article.id), :method => :get   %>
 			</td>
 		</tr>
 	<% end %>
@@ -54,3 +65,4 @@ table td,th{
 <% if(@status=="edit")%>
 
 <% end %>
+</div>

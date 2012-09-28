@@ -1,0 +1,17 @@
+<!--This section is to show all comments that owned by the article  -->
+<div id="comments">
+  <% unless(@comments.nil?)%>
+    <% @comments.each do |comment| %>
+      <%= comment.content %><br />
+    <% end %>
+  <% end %>
+</div><br /><br />
+
+
+<% unless(current_user.nil?)%>
+   <%= form_for @comment, :url => comments_path do |f| -%>
+      <%= f.text_area :content %>
+      <%= f.hidden_field :article_id, :value => @article.id %>
+      <%= f.submit "comment" %>
+  <% end -%>
+<% end %>
