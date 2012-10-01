@@ -38,4 +38,14 @@ class User < ActiveRecord::Base
       nil
     end
   end
+
+  def is_admin?
+    if self.id==1
+      return true
+    else 
+      return false
+    end
+  end
+
+
 end

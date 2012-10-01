@@ -28,8 +28,9 @@
 	    </table>
 	  <% end %>
 	
-	<h2>Post New Comment</h2>
+	
 	<% unless(current_user.nil?)%>
+	<h2>Post New Comment</h2>
 	   <%= form_for @comment, :url => comments_path do |f| -%>
 	      <%= f.text_area :content , :style => "width:100%; height: 100px; box-shadow: inset 2px 2px 2px #333;"%>
 	      <%= f.hidden_field :article_id, :value => @article.id %><br/>

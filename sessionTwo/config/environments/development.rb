@@ -38,5 +38,19 @@ SessionTwo::Application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 } 
+  # config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 } 
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :domain               => "executionisqueen.com",
+    :user_name            => "training.ror",
+    :password             => "karapitan100",
+    :authentication       => "plain",
+    :enable_starttls_auto => true
+  }
+
+  config.middleware.use ExceptionNotifier,
+    :email_prefix => "[Whatever]",
+    :sender_address => %{"notifier" <ivan.andhika@kiranatama.com>},
+    :exception_recipients => %w{ivan.andhika@kiranatama.com}
 end

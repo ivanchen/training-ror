@@ -8,7 +8,11 @@ class SessionsController < ApplicationController
       if user
         session[:user_id] = user.id
         # UserMailer.registration_confirmation(user).deliver
-        redirect_to root_url, :notice => "Welcome " << user.email
+        if current_user.is_admin?
+          redirect_to admin_articles_path, :notice => "Welcome Admin: " << user.email
+        else
+          redirect_to root_url, :notice => "Welcome " << user.email
+        end
       else
         flash[:error] = "Invalid email or password" 
         render "new"
