@@ -1,0 +1,25 @@
+		<% unless(@comments.nil?)%>
+		  <table>
+			<tr>
+				<th>
+					No.
+				</th>
+				<th>
+					Content
+				</th>
+			</tr>	
+			<% i=1 %>
+		    <% @comments.each do |comment| %>
+		    <% if i%2==0%>
+		    <tr class="genap">
+	    	<% else %>
+	    	<tr class="ganjil">
+	    	<% end %>
+		    	<td><%=i%></td>
+		      	<td><%= comment.content %></td>
+	        </tr>
+	        <% i+=1 %>
+		    <% end %>
+			
+	      </table>
+	    <% end %>

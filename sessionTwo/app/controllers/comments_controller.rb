@@ -9,11 +9,19 @@ class CommentsController < ApplicationController
     # raise params.inspect
     comment = Comment.new(params[:comment])
     # raise article.inspect
-    if comment.save
-      redirect_to articles_path, :notice => "comment untuk artikel : "<<comment.article.title<<" berhasil disimpan"
-    else
-      render :action => :show , :notice => "comment untuk artikel : "<<comment.article.title<<" gagal disimpan"
+
+ respond_to do |format|
+  if comment.save
+      format.html { redirect_to comment_path(comment.article.id), :notice => "comment untuk artikel : "<<comment.article.title<<" berhasil disimpan" }
+      format.js { @comments = Comment.find_all_by_article_id(comment.article) }
     end
+  end
+
+    # if comment.save
+    #   redirect_to comment_path(comment.article.id), :notice => "comment untuk artikel : "<<comment.article.title<<" berhasil disimpan"
+    # else
+    #   render :action => :show , :notice => "comment untuk artikel : "<<comment.article.title<<" gagal disimpan"
+    # end
   end
 
 end
