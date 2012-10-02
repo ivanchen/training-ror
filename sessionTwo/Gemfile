@@ -28,7 +28,7 @@ gem 'recaptcha', :require => 'recaptcha/rails'
 gem 'debugger'
 gem 'awesome_print'
 gem 'exception_notification'
-
+gem 'simplecov'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
