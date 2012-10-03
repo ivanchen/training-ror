@@ -1,0 +1,33 @@
+// Place all the styles related to the articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.wrap{
+	width:90%;
+	margin: 1% 5%;
+}
+table{
+	width: 100%;
+}
+
+table th, td{
+	padding: 3px 10px;
+}
+
+table th{
+	background: #A60000;
+	color: white;
+}
+
+table tr.ganjil td{
+	background: #CCCCCC;
+}
+
+table tr.genap td{
+	background: #EEEEEE;
+}
+
+table tr.ganjil:hover td, table tr.genap:hover td{
+	background: #FFCCCC;
+}
+

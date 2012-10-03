@@ -1,0 +1,72 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+
+admin:
+  id: 1
+  email: "admin@admin.com"
+  password_hash: 
+  password_salt: 
+  name: "Admin"
+  address: "some where Admin"
+  phone_number: "0800-0000-0000"
+  birthday: "1990-05-08"
+  gender: 1
+  facebook: "facebook"
+  blog: "blog.wgs.co.id"
+
+ivan:
+  id: 2
+  email: "ivan@andhika.com"
+  password_hash:
+  password_salt:
+  name: "ivan"
+  address: "some where ivan" 
+  phone_number: "0800-0000-0000"
+  birthday: "1990-05-08"
+  gender: 1
+  facebook: "facebook"
+  blog: "blog.wgs.co.id"
+
+andhika:
+  id: 3
+  email: "andhika@ivan.com"
+  password_hash:
+  password_salt:
+  name: "andhika"
+  address: "some where andhika" 
+  phone_number: "0800-0000-0000"
+  birthday: "1990-05-08"
+  gender: 1
+  facebook: "facebook"
+  blog: "blog.wgs.co.id"
+
+chen:
+  id: 4
+  email: "chen@ivan.com"
+  password_hash:
+  password_salt:
+  name:
+  address: "some where" 
+  phone_number: "0800-0000-0000"
+  birthday: "1990-05-08"
+  gender: 1
+  facebook: "facebook"
+  blog: "blog.wgs.co.id"
+
+gladys:
+  id: 5
+  email: "gladys@ivan.com"
+  password_hash:
+  password_salt:
+  name: "Gladys"
+  address: "some where Gladys
+  phone_number: "0800-0000-0000"
+  birthday: "1989-09-27"
+  gender: 0
+  facebook: "facebook"
+  blog: "blog.gulangi.co.id"
+

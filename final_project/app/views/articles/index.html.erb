@@ -1,0 +1,73 @@
+<div class="wrap">
+<p><%=flash[:notice]%></p>
+<div class="left">
+<%= link_to "Add Article", new_article_path %>
+</div>
+<div class="right">
+
+</div>
+<br class="clear"/>
+<table>
+	<tr>
+		<th>
+			ID
+		</th>
+		<th>
+			Title
+		</th>
+		<th>
+			Body
+		</th>
+		<th>
+			Rating
+		</th>
+		<th>
+			ID Writer
+		</th>
+		<th>
+			Action
+		</th>
+	</tr>
+	<% i = 1 %>
+	<% @articles.each do  |article| %>
+	    <% if i%2==0 %>
+		<tr class="genap">
+		<% else %>
+		<tr class="ganjil">
+		<% end %>
+		<% i+=1 %>
+			<td>
+				<%=article.id%>
+			</td>
+			<td>
+				<%=article.title%>
+			</td>
+			<td>
+				<%=article.body%>
+			</td>
+			<td>
+				<%=article.rating%>
+			</td>
+			<td>
+					<%=article.user.first_name if article.user.present?%>
+			</td>
+			<td>
+				<% if current_user.present? %>
+					<% if article.user.id==current_user.id || current_user.is_admin? %>
+					<%= link_to "Edit", edit_article_path(article.id) %> | 
+					<% end %>
+					<% if article.user.id==current_user || current_user.is_admin?%>
+					<%= link_to "Delete", article_path(article.id), :method => :delete %> | 
+					<% end %>
+				<% end %>
+
+				<%= link_to "Show Comments", comment_path(article.id), :method => :get   %>
+			</td>
+		</tr>
+	<% end %>
+</table>
+
+<% if(@status=="edit")%>
+
+<% end %>
+</div>

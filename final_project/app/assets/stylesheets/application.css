@@ -1,0 +1,138 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+html, body{
+	margin: 0;
+	padding: 0;
+	background: url("body.png");
+	font-family: "Ubuntu", sans;
+	height:100%;
+}
+
+#wrapper{
+	position: relative;
+	width: 1024px;
+	margin: 0 auto;
+	background: url("wrapper.png");
+	height:auto !important; /* real browsers */
+	height:100%; /* IE6: treaded as min-height*/
+
+	min-height:100%; /* real browsers */
+}
+
+#footer{
+	position:absolute;
+	width:100%;
+	bottom:0; /* stick to bottom */
+	background:url("header.png");
+	color: #AAA;
+	text-align: center;
+}
+
+a{
+	text-decoration: none;
+	color: #a60000;
+}
+.left{
+	float: left;
+}
+
+.right{
+	float:right;
+}
+
+.clear{
+	clear: both;
+}
+
+#header{
+	margin-top:-50px;
+	margin-bottom: -20px;
+	padding: 0px;
+	height: 100px;
+	text-align: center;
+	background: url("header.png") repeat
+}
+#header p{
+	padding-top:20px;
+	font-size: 50px;
+    text-shadow: 0px 2px 3px rgb(102, 102, 102);
+    color: #aaa;
+
+}
+.menu{
+	background: url("menu.png");
+	height: 40px;
+	box-shadow: 0px 2px 5px #333;
+}
+
+.menu a, .status a{
+	text-decoration: none;
+	text-shadow: 0px 2px 3px #333333;
+	color: #FFFFFF;
+}
+
+.menu ul{
+    margin: 0; padding: 0;
+    float: left;
+}
+ 
+.menu ul li{
+    display: inline;
+}
+ 
+.menu ul li a{
+    float: left; text-decoration: none;
+}
+.menu ul li a,.status a{
+	text-decoration: none;
+	color: white;
+    padding: 10.5px 11px;
+    background-color: #A60000; 
+}
+.status a{
+	float: left;
+}
+.status p{
+	color: white;
+    margin: 10.5px 11px;
+    padding-right: 20px;
+    border-right: 2px solid grey;
+    text-shadow: 0px 2px 3px #333333;
+	float: left;
+}
+ 
+.menu ul li a:visited, .status a:visited{
+    color: white;
+}
+ 
+.menu ul li a:hover, .menu ul li .current, .status a:hover{
+    color: #FFFFFF;
+    background: url("menu-hover.png");
+}
+input[type="submit"]{
+	background: #A60000;
+	width: 100px;
+	padding: 10.5px 11px;
+	border: none;
+	color: #FFFFFF;
+}
+
+input[type="submit"]:hover{
+	background: #333;
+	color: #FFFFFF;
+}
+
+input[type="text"],input[type="password"], textarea{
+	width: 300px;
+}
