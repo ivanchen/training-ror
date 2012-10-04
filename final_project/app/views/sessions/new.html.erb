@@ -1,18 +1,66 @@
 <div class="wrap">
   <p><%=flash[:error]%></p>
   <p><%=flash[:notice]%></p>
-  <h1>Log in</h1> 
-    <%= form_tag sessions_path do %> 
-    <p> 
-      <%= label_tag :email %><br /> 
-      <%= text_field_tag :email, params[:email] %> 
-    </p> 
-    <p> 
-      <%= label_tag :password %><br /> 
-      <%= password_field_tag :password %> 
-    </p> 
-    <%#= recaptcha_tags %>
-    <%= link_to "Sign Up", new_user_path %>
-    <p class="button"><%= submit_tag "Login" %></p> 
-  <% end %> 
+  <div id="left_side">
+    <h1>Log in</h1> 
+      <%= form_tag sessions_path do %> 
+      <p> 
+        <%= label_tag :email %><br /> 
+        <%= text_field_tag :email, params[:email] %> 
+      </p> 
+      <p> 
+        <%= label_tag :password %><br /> 
+        <%= password_field_tag :password %> 
+      </p> 
+      <%#= recaptcha_tags %>
+      <%= link_to "Sign Up", new_user_path %>
+      <p class="button"><%= submit_tag "Login" %></p> 
+    <% end %> 
+  </div>
+  <div id="right_side">
+
+    <div class="list_head">
+      <h2>Listing Product</h2>
+    </div>
+    <div class="content">
+      <ul>
+        <% @products.each do  |product| %>
+        <li class="list_product">
+          <div>
+            <p>Name: </p><p class="product"><%=product.name%></p>
+            <br/>
+            <p>Price: </p><p class="product"><%=product.price%></p>
+            <br/>
+            <a href="#"> See Details</a>
+          </div>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+
+  <div class="list_head">
+      <h2>Listing Article</h2>
+    </div>
+    <div class="content" style="padding: 50px 0 0 0 ;">
+      <table>
+            <% i = 1 %>
+        <% @articles.each do  |article| %>
+            <% if i%2==0 %>
+          <tr class="genap">
+          <% else %>
+          <tr class="ganjil">
+          <% end %>
+          <% i+=1 %>
+            <td>
+              <%= truncate(article.body, :length => 20, :omission => '...') %>
+              <br/>
+              <br/>
+              <a href=# >Lihat Detail</a>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+
+  </div>
 </div>

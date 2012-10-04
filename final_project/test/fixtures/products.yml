@@ -4,8 +4,60 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+Gundam:
+  id: 1
+  name: "Gundam"
+  description: "this is description"
+  price: 50000000
+  weight: 10000
+  user_id: 3
+  category_id: 2
+
+Digivice:
+  id: 2
+  name: "Digivice"
+  description: "this is description"
+  price: 200000
+  weight: 20
+  user_id: 1
+  category_id: 5
+
+Pokeball:
+  id: 3
+  name: "Pokeball"
+  description: "this is description"
+  price: 5000
+  weight: 15
+  user_id: 4
+  category_id: 5
+
+Phoenix:
+  id: 4
+  name: "Phoenix Down"
+  description: "this is description"
+  price: 500
+  weight: 5
+  user_id: 5
+  category_id: 4
+
+Power Card:
+  id: 5
+  name: "Power Card"
+  description: "this is description"
+  price: 1000
+  weight: 1
+  user_id: 2
+  category_id: 4
+
+Gundam:
+  id: 6
+  name: "Vagan"
+  description: "this is description"
+  price: 50000000
+  weight: 12000
+  user_id: 1
+  category_id: 1
+
+
+
+

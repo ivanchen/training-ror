@@ -5,4 +5,6 @@ class Article < ActiveRecord::Base
   validates :title, 		:presence => true,
 	                    	:length => {:minimum => 1, :maximum => 254},
 	                    	:uniqueness => true
+  # create install model to show only 3 newest article
+  
 end

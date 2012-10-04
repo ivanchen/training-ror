@@ -16,7 +16,8 @@ html, body{
 	padding: 0;
 	background: url("body.png");
 	font-family: "Ubuntu", sans;
-	height:100%;
+	height:150%;
+	min-height: 150%;
 }
 
 #wrapper{
@@ -66,8 +67,8 @@ a{
 #header p{
 	padding-top:20px;
 	font-size: 50px;
-    text-shadow: 0px 2px 3px rgb(102, 102, 102);
-    color: #aaa;
+    color: rgb(224, 224, 224);
+    text-shadow: 0px -2px rgba(0, 0, 0, 0.2);
 
 }
 .menu{
@@ -134,5 +135,78 @@ input[type="submit"]:hover{
 }
 
 input[type="text"],input[type="password"], textarea{
-	width: 300px;
+	width: 200px;
 }
+
+.wrap{
+	width:100%;
+	min-height: 100%;
+	/*margin: 10px 20px;*/
+}
+
+#left_side{
+	float:left;
+	width: 260px;
+	padding: 5px 20px;
+	/*background: url('content.png');*/
+	/*box-shadow: inset1px 1px 3px #aaa;*/
+}
+
+#right_side{
+	float: right;
+	width: 660px;
+	padding: 5px 20px;
+}
+
+#right_side .list_head{
+	z-index: 1;
+	position: relative;
+	height: 50px;
+	background: url('list.png');
+	/*box-shadow: 1px 1px 3px #333;*/
+}
+
+#right_side .list_head h2{
+	color: white;
+	padding: 10px 20px;
+    text-shadow: 0px 2px 3px #333333;
+}
+
+#right_side .content{
+	z-index: 0;
+	margin-top:-50px;
+	padding: 60px 20px 10px 20px;
+	background: url('content.png');
+	box-shadow: 2px 2px 5px #aaa;
+
+}
+#right_side .content ul{
+	margin: 0px;
+	padding: 0px;
+}
+
+.list_product{
+	text-decoration: none;
+	display: inline-block;
+	width: 172px;
+	padding: 10px;
+	margin: 5px;
+	/*background: red;*/
+	border: 1px solid #888;
+	font-size: 12px;
+}
+
+.list_product:hover{
+   background: rgb(255,204,204);
+   /*border: 1px solid #a60000;*/
+}
+
+.list_product p{
+	display: inline;
+}
+
+p.product{
+	color: #333;
+}
+
+

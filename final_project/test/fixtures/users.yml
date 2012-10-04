@@ -5,11 +5,11 @@
 # below each fixture, per the syntax in the comments below
 #
 
-admin:
+admin: 
   id: 1
   email: "admin@admin.com"
-  password_hash: 
-  password_salt: 
+  password_hash: "$2a$10$0YhfL8ifJ1PFdnoWYF.fqe.xbKa8r8PE8TKP1eBOqQ6DtvlB/wgMm"
+  password_salt: "$2a$10$0YhfL8ifJ1PFdnoWYF.fqe"
   name: "Admin"
   address: "some where Admin"
   phone_number: "0800-0000-0000"
@@ -18,12 +18,12 @@ admin:
   facebook: "facebook"
   blog: "blog.wgs.co.id"
 
-ivan:
+ivan: 
   id: 2
   email: "ivan@andhika.com"
-  password_hash:
-  password_salt:
-  name: "ivan"
+  password_hash: "$2a$10$0YhfL8ifJ1PFdnoWYF.fqe.xbKa8r8PE8TKP1eBOqQ6DtvlB/wgMm"
+  password_salt: "$2a$10$0YhfL8ifJ1PFdnoWYF.fqe"
+  name: "Ivan"
   address: "some where ivan" 
   phone_number: "0800-0000-0000"
   birthday: "1990-05-08"
@@ -31,12 +31,12 @@ ivan:
   facebook: "facebook"
   blog: "blog.wgs.co.id"
 
-andhika:
+andhika: 
   id: 3
   email: "andhika@ivan.com"
-  password_hash:
-  password_salt:
-  name: "andhika"
+  password_hash: "$2a$10$0YhfL8ifJ1PFdnoWYF.fqe.xbKa8r8PE8TKP1eBOqQ6DtvlB/wgMm"
+  password_salt: "$2a$10$0YhfL8ifJ1PFdnoWYF.fqe"
+  name: "Andhika"
   address: "some where andhika" 
   phone_number: "0800-0000-0000"
   birthday: "1990-05-08"
@@ -44,12 +44,12 @@ andhika:
   facebook: "facebook"
   blog: "blog.wgs.co.id"
 
-chen:
+chen: 
   id: 4
   email: "chen@ivan.com"
-  password_hash:
-  password_salt:
-  name:
+  password_hash: "$2a$10$0YhfL8ifJ1PFdnoWYF.fqe.xbKa8r8PE8TKP1eBOqQ6DtvlB/wgMm"
+  password_salt: "$2a$10$0YhfL8ifJ1PFdnoWYF.fqe"
+  name: "Chen"
   address: "some where" 
   phone_number: "0800-0000-0000"
   birthday: "1990-05-08"
@@ -57,16 +57,16 @@ chen:
   facebook: "facebook"
   blog: "blog.wgs.co.id"
 
-gladys:
-  id: 5
-  email: "gladys@ivan.com"
-  password_hash:
-  password_salt:
-  name: "Gladys"
-  address: "some where Gladys
-  phone_number: "0800-0000-0000"
-  birthday: "1989-09-27"
-  gender: 0
-  facebook: "facebook"
-  blog: "blog.gulangi.co.id"
+# gladys: 
+#   id: 5
+#   email: "gladys@ivan.com"
+#   password_hash: "$2a$10$0YhfL8ifJ1PFdnoWYF.fqe.xbKa8r8PE8TKP1eBOqQ6DtvlB/wgMm"
+#   password_salt: "$2a$10$0YhfL8ifJ1PFdnoWYF.fqe"
+#   name: "Gladys"
+#   address: "some where Gladys
+#   phone_number: "0800-0000-0000"
+#   birthday: "1989-09-27"
+#   gender: 0
+#   facebook: "facebook"
+#   blog: "blog.gulangi.co.id"
 
