@@ -43,7 +43,11 @@
 			  <p class="notification"><%=flash[:notice]%></p>
 			  <% if session[:user_id].present?%>
 			  <div id="left_side">
-			    
+			  	<hr />
+			    <%=link_to "Edit Profile", edit_user_path(current_user.id)%><br /><br />
+			    <%=link_to "Sell a Product", new_product_path%><br /><br />
+			    <%=link_to "Share an Article", new_article_path%>
+			    <hr />
 			  </div>
 			  <% else %>
 			  <div id="left_side">

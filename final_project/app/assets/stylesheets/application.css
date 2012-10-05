@@ -16,8 +16,8 @@ html, body{
 	padding: 0;
 	background: url("body.png");
 	font-family: "Ubuntu", sans;
-	height:150%;
-	min-height: 150%;
+	height:120%;
+	min-height: 120%;
 }
 
 #wrapper{
