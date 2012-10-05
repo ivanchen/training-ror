@@ -1,12 +1,13 @@
 class SessionsController < ApplicationController
   def new
-    @products = Product.all
-    @articles = Article.all
+    @products = Product.showSixLatestProduct
+    @articles = Article.showThreeLatestArticle
   end
   def create
     user = User.authenticate(params[:email],params[:password])
-    
-    raise "dor"
+    @products = Product.showSixLatestProduct
+    @articles = Article.showThreeLatestArticle
+    # raise "dor"
     if user
       session[:user_id] = user.id
 

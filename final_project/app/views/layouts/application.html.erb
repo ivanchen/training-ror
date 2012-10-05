@@ -23,11 +23,7 @@
 						<%= link_to "Products", products_path %>
 					</li>
 					<li>
-						<% if current_user.present? && current_user.is_admin? %>
-						<%= link_to "Articles", admin_articles_path %>
-						<% else %>
 						<%= link_to "Articles", articles_path %>
-						<% end %>
 					</li>
 					<li>
 						<%= link_to "Category", categories_path %>
@@ -42,7 +38,36 @@
 			</div>
 		</div>
 		<br class="clear">
-			<%= yield %>
+			<div class="wrap">
+			  <p class="notification"><%=flash[:error]%></p>
+			  <p class="notification"><%=flash[:notice]%></p>
+			  <% if session[:user_id].present?%>
+			  <div id="left_side">
+			    
+			  </div>
+			  <% else %>
+			  <div id="left_side">
+			    <h1>Log in</h1> 
+			      <%= form_tag sessions_path do %> 
+			      <p> 
+			        <%= label_tag :email %><br /> 
+			        <%= text_field_tag :email, params[:email] %> 
+			      </p> 
+			      <p> 
+			        <%= label_tag :password %><br /> 
+			        <%= password_field_tag :password %> 
+			      </p> 
+			      <%#= recaptcha_tags %>
+			      <%= link_to "Sign Up", new_user_path %>
+			      <p class="button"><%= submit_tag "Login" %></p> 
+			    <% end %> 
+			  </div>
+			  <% end %>
+			  <div id="right_side">
+			  		<%= yield %>
+			  </div>
+			</div>
+
 	<div id="footer">
 			<p>
 				Created by Ivan Andhika

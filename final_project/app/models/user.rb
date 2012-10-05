@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   self.primary_key = "id"
-  attr_accessible :email, :password_hash, :password_salt, :name, :address, :phone_number, :birthday, :gender, :facebook, :blog, :password, :password_confirmation
+  attr_accessible :id, :email, :password_hash, :password_salt, :name, :address, :phone_number, :birthday, :gender, :facebook, :blog, :password, :password_confirmation
   before_save :encrypt_password
   has_many :products, :dependent => :destroy
   has_many :articles, :dependent => :destroy

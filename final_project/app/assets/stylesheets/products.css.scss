@@ -1,3 +1,16 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.name_product{
+	color: #FFc0c0;
+}
+.details p{
+	display: inline-block;
+	width:100px;
+}
+
+.details p.product{
+	display: inline-block;
+	width:300px;
+}

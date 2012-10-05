@@ -1,0 +1,16 @@
+	<div class="list_head">
+      <h2>Edit : <%=@user.name%></h2>
+    </div>
+    <div class="content" style="padding: 50px 0 0 0 ;">
+		<%= form_for @user, :html => {:class=>"form_standart"} do |f| %>
+		  <%= f.hidden_field :id , :value => @user.id %><br/>
+		  Name: <br/><%= f.text_field :name, :value => @user.name %><br/><br/>
+		  Address: <br/><%= f.text_area :address, :value => @user.address, :style => "width:100%; height: 100px; box-shadow: inset 2px 2px 2px #333;" %><br/><br/>
+		  Birthday: <br /><%= f.date_select :birthday, :class => "datepicker", :value => @user.birthday.strftime("%Y-%m-%d") %><br/><br/>
+		  Email: <br/><%= f.text_field :email,:value =>  @user.email%><br/><br/>
+		  Phone Number: <br/><%= f.text_field :phone_number,:value =>  @user.phone_number%><br/><br/>
+		  Facebook: <br/><%= f.text_field :facebook,:value =>  @user.facebook%><br/><br/>
+		  Blog: <br/><%= f.text_field :blog,:value =>  @user.blog%><br/><br/>
+		  <%=f.submit :update%><br/>
+		<% end %>
+	</div>

@@ -1,0 +1,15 @@
+<div class="list_head">
+      <h2><%=@products.name%></h2>
+    </div>
+    <div class="content">
+          <div class="details">
+            <p>Price</p><p class="product">: <%=@products.price%></p>
+            <br/>
+            <p>Weight</p><p class="product">: <%=@products.weight%></p>
+            <br/>
+            <p>Owner</p><p class="product">: <%=@products.user.name%></p>
+            <br/>
+            <p>Category</p><p class="product">: <%=@products.category.name if @products.category.present?%></p>
+            <br/>
+          </div>
+    </div>

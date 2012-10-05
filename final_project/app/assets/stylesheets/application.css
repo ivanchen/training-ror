@@ -144,6 +144,12 @@ input[type="text"],input[type="password"], textarea{
 	/*margin: 10px 20px;*/
 }
 
+.wrap p.notification{
+	margin: 10px 20px;
+	color: #a60000;
+	font-style: italic;
+}
+
 #left_side{
 	float:left;
 	width: 260px;
@@ -167,9 +173,23 @@ input[type="text"],input[type="password"], textarea{
 }
 
 #right_side .list_head h2{
+	float: left;
 	color: white;
-	padding: 10px 20px;
+	margin: 10px 20px;
     text-shadow: 0px 2px 3px #333333;
+}
+
+#right_side .list_head a{
+	float: left;
+	font-size: 24px;
+	color: #eee;
+    text-shadow: 0px 0px 5px #555;
+}
+
+#right_side .list_head a:hover{
+	float: left;
+	color: #eee;
+    text-shadow: 0px 0px 8px #ffffff;
 }
 
 #right_side .content{
@@ -209,4 +229,6 @@ p.product{
 	color: #333;
 }
 
-
+form.form_standart{
+	padding: 10px 20px;
+}

@@ -7,6 +7,13 @@ class ArticlesController < ApplicationController
 		@article = Article.new
 	end
 
+	def show
+		@articles = Article.find(params[:id])
+		if @articles.nil?
+			redirect_to articles_path, :notice => "Mohon maaf, kami tidak menemuka article yang Anda cari"
+		end
+	end
+
 	def create
 		article = Article.new(params[:article])
 	    if article.save
@@ -22,20 +29,28 @@ class ArticlesController < ApplicationController
 
 	def edit
 		id = params[:id]
-	    @article_id = Article.find(id)
+	    @article = Article.find(id)
 	    @status = "edit"
+	    if current_user.id !=@article.user.id
+	    	redirect_to articles_path, :notice => "Anda tidak memiliki hak untuk memperbaharui "<<@article.title
+		end
 	end
 
 	def update
 		id = params[:id]
 	    title = params[:article][:title]
-	    @article_id = Article.find(id)
-	    status = @article_id.update_attributes(params[:article])
-	    if status
-	      redirect_to articles_path, :notice => "article: "<<title<<" berhasil diperbaharui"
-	    else
-	      redirect_to articles_path, :notice => "article: "<<title<<" gagal diperbaharui"
-	    end
+	    user_id = params[:article][:user_id]
+	    if current_user.id ==user_id
+		    @article = Article.find(id)
+		    status = @article.update_attributes(params[:article])
+		    if status
+		      redirect_to articles_path, :notice => "article: "<<title<<" berhasil diperbaharui"
+		    else
+		      redirect_to articles_path, :notice => "article: "<<title<<" gagal diperbaharui"
+		    end
+		else
+			redirect_to articles_path, :notice => "Anda tidak memiliki hak untuk memperbaharui "<<title
+		end
 	end
 
 	def destroy

@@ -1,0 +1,17 @@
+<div class="list_head">
+      <h2><%=@users.name%></h2>
+    </div>
+    <div class="content">
+          <div class="details">
+            <p>Email</p><p class="product">: <%=@users.email%></p>
+            <br/>
+            <p>Address</p><p class="product">: <%=@users.address%></p>
+            <br/>
+            <p>Gender</p><p class="product">: <%=@users.gender%></p>
+            <br/>
+            <p>Facebook</p><p class="product">: <%=@users.facebook if @users.facebook.present?%></p>
+            <br/>
+            <p>Blog</p><p class="product">: <%=@users.blog if @users.blog.present?%></p>
+            <br/>
+          </div>
+    </div>

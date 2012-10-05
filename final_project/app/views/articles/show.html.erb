@@ -1,0 +1,10 @@
+<div class="list_head">
+      <h2><%=@articles.title%></h2>
+    </div>
+    <div class="content">
+          <div class="article_body">
+            <p class="product">by <%=link_to @articles.user.name, user_path(@articles.user.id), :method => :get if @articles.user.present?%></p>
+            <p class="product"><%=@articles.body%></p>
+            <br/>
+          </div>
+    </div>
