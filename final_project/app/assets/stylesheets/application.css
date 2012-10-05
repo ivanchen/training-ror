@@ -119,6 +119,7 @@ a{
  
 .menu ul li a:hover, .menu ul li .current, .status a:hover{
     color: #FFFFFF;
+    box-shadow: inset 3px 3px 2px #5B0002;
     background: url("menu-hover.png");
 }
 input[type="submit"]{
@@ -130,7 +131,8 @@ input[type="submit"]{
 }
 
 input[type="submit"]:hover{
-	background: #333;
+	background: url("menu-hover.png");
+	box-shadow: inset 3px 3px 2px #5B0002;
 	color: #FFFFFF;
 }
 
@@ -217,7 +219,7 @@ input[type="text"],input[type="password"], textarea{
 }
 
 .list_product:hover{
-   background: rgb(255,204,204);
+   background: rgba(255,204,204,0.4);
    /*border: 1px solid #a60000;*/
 }
 

@@ -48,6 +48,15 @@
 			    <%=link_to "Sell a Product", new_product_path%><br /><br />
 			    <%=link_to "Share an Article", new_article_path%>
 			    <hr />
+			    <% @categories = Category.getParent %>
+			    <% @categories.each do  |category| %>
+				    
+				    <p style="margin-left:20px;"><%=category.name%></p>
+				    <% @child = Category.child(category.id) %>
+				    <% @child.each do  |child| %>
+				    <p style="margin-left:40px; color: #333;"><%=child.name%></p>
+				    <% end %>
+			    <% end %>
 			  </div>
 			  <% else %>
 			  <div id="left_side">
