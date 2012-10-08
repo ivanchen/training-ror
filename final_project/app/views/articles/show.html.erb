@@ -6,5 +6,8 @@
             <p class="product">by <%=link_to @articles.user.name, user_path(@articles.user.id), :method => :get if @articles.user.present?%></p>
             <p class="product"><%=@articles.body%></p>
             <br/>
+            <%= link_to "Add Comment",new_comment_path(:article_id => @articles.id),:method => :get, :title => "Add Comment"%>
+             | 
+            <%= link_to "See Comments",comment_path(@articles.id),:method => :get, :title => "See Comments"%>
           </div>
     </div>

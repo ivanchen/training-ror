@@ -16,7 +16,7 @@
               <div class="right" style="margin-top:20px; margin-right:20px;">
                 <%= link_to "Edit",edit_admin_category_path(category.id)%>
                 | 
-                <%= link_to "Delete",admin_category_path(category.id), :method => "delete", :title => "Delete Category"%>
+                <%= link_to "Delete",admin_category_path(category.id), :method => :delete, :title => "Delete Category"%>
               </div>
             <br class="clear"/>
               <% @child = Category.child(category.id) %>
@@ -25,9 +25,9 @@
                   <p style="margin-left:40px; color: #333;"><%=child.name%></p>
                 </div>
                 <div class="right" style="margin-top:20px; margin-right:20px;">
-                  <%= link_to "Edit",edit_admin_category_path(category.id)%>
+                  <%= link_to "Edit",edit_admin_category_path(child.id)%>
                   | 
-                  <%= link_to "Delete",admin_category_path(category.id), :method => "delete", :title => "Delete Category"%>
+                  <%= link_to "Delete",admin_category_path(child.id), :method => :delete, :title => "Delete Category"%>
                 </div>
                 <br class="clear"/>
               <% end %>

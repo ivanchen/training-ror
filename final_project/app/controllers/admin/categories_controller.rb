@@ -1,5 +1,4 @@
-class Admin::CategoriesController < ApplicationController
-	before_filter :require_admin_login, :only => [:destroy]
+class Admin::CategoriesController < Admin::ApplicationController
 	protect_from_forgery
 	def index
 		@categories = Category.all
@@ -8,6 +7,18 @@ class Admin::CategoriesController < ApplicationController
 	def new
 		@category = Category.new
 		@parent_category = Category.getParent.map{|x| [x.name, x.id]}
+	end
+
+	# def show
+	# 	id = params[:id]
+	# 	@category = Category.find(id)
+	# 	@parent_category = Category.getParent.map{|x| [x.name, x.id]}
+	# end
+
+	def edit
+		id = params[:id]
+		@parent_category = Category.getParent.map{|x| [x.name, x.id]}
+		@category = Category.find(id)
 	end
 
 	def create
@@ -21,6 +32,22 @@ class Admin::CategoriesController < ApplicationController
 	    else
 	      render :action => :new , :notice => "category: "<<category.name<<" gagal disimpan"
 	    end
+	end
+
+	def update
+		id = params[:id]
+	    name = params[:category][:name]
+	    if current_user.is_admin?
+		    @category = category.find(id)
+		    status = @category.update_attributes(params[:category])
+		    if status
+		      redirect_to admin_categories_path, :notice => "category: "<<name<<" berhasil diperbaharui"
+		    else
+		      redirect_to admin_categories_path, :notice => "category: "<<name<<" gagal diperbaharui"
+		    end
+		else
+			redirect_to admin_categories_path, :notice => "Anda tidak memiliki hak untuk memperbaharui "<<name
+		end
 	end
 
 	def destroy

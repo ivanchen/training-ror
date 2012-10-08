@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   before_save :encrypt_password
   has_many :products, :dependent => :destroy
   has_many :articles, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
 
   attr_accessor :password, :password_confirmation
 

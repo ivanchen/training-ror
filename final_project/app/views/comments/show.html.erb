@@ -1,0 +1,12 @@
+<div class="list_head">
+      <h2><%=link_to @article.title, article_path(@article.id), :title=>"back to "+@article.title%></h2>
+    </div>
+    <div class="content">
+          <div class="article_body">
+            <% @comments.each do  |comment| %>
+            <p class="writer">by: <%= link_to comment.user.name, user_path(comment.user.id), :title => comment.user.name%></p>
+            <p class="comment"><%=comment.comment%></p>
+            <br/>
+            <% end %>
+          </div>
+    </div>

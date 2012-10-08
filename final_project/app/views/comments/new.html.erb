@@ -1,0 +1,12 @@
+	<div class="list_head">
+      <h2>New Comment for </h2>
+    </div>
+    <div class="content" style="padding: 50px 0 0 0 ;">
+		<%= form_for @comment, :html => {:class=>"form_standart"} do |f| %>
+		  <%= f.hidden_field :id %><br/>
+		  Comment: <br/><%= f.text_field :comment%><br/><br/>
+		  <%= f.hidden_field :user_id , :value =>current_user.id%>
+		  <%= f.hidden_field :article_id , :value =>@article.id%>
+		  <%=f.submit :create%><br/>
+		<% end %>
+	</div>
