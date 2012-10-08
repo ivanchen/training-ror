@@ -1,0 +1,13 @@
+	<div class="list_head">
+      <h2>New Categories</h2>
+    </div>
+    <div class="content" style="padding: 50px 0 0 0 ;">
+		<%= form_for @category, :url => admin_categories_path, :html => {:class=>"form_standart"} do |f| %>
+		  <%= f.hidden_field :id %><br/>
+		  Name: <br/><%= f.text_field :name%><br/><br/>
+		  Parent: <br/><%= f.select :parent_id, @parent_category, { :include_blank => true } %>
+<br/>
+		  <br />
+		  <%=f.submit :create%><br/>
+		<% end %>
+	</div>

@@ -17,11 +17,7 @@ class ArticlesController < ApplicationController
 	def create
 		article = Article.new(params[:article])
 	    if article.save
-	      if current_user.is_admin?
-	        redirect_to admin_articles_path, :notice => "article: "<<article.title<<" berhasil disimpan"
-	      else
 	        redirect_to articles_path, :notice => "article: "<<article.title<<" berhasil disimpan"  
-	      end
 	    else
 	      render :action => :new , :notice => "article: "<<article.title<<" gagal disimpan"
 	    end

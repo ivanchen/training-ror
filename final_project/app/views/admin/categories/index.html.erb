@@ -1,0 +1,35 @@
+  <div class="list_head">
+    <div class="left">
+      <h2>List Categories</h2>
+    </div>
+    <div class="right">
+      <h2><%=link_to "+", new_admin_category_path , :title => "Add New Category" %></h2>
+    </div>
+  </div>
+    <div class="content" style="padding: 50px 0 20px 0 ;">
+
+        <% @categories = Category.getParent %>
+          <% @categories.each do  |category| %>
+              <div class="left">
+                <p style="margin-left:20px;"><%=category.name%></p>
+              </div>
+              <div class="right" style="margin-top:20px; margin-right:20px;">
+                <%= link_to "Edit",edit_admin_category_path(category.id)%>
+                | 
+                <%= link_to "Delete",admin_category_path(category.id), :method => "delete", :title => "Delete Category"%>
+              </div>
+            <br class="clear"/>
+              <% @child = Category.child(category.id) %>
+              <% @child.each do  |child| %>
+                <div class="left">
+                  <p style="margin-left:40px; color: #333;"><%=child.name%></p>
+                </div>
+                <div class="right" style="margin-top:20px; margin-right:20px;">
+                  <%= link_to "Edit",edit_admin_category_path(category.id)%>
+                  | 
+                  <%= link_to "Delete",admin_category_path(category.id), :method => "delete", :title => "Delete Category"%>
+                </div>
+                <br class="clear"/>
+              <% end %>
+          <% end %>
+    </div>

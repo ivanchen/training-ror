@@ -128,11 +128,12 @@ input[type="submit"]{
 	padding: 10.5px 11px;
 	border: none;
 	color: #FFFFFF;
+	box-shadow: 1px 1px 2px #440002;
 }
 
 input[type="submit"]:hover{
 	background: url("menu-hover.png");
-	box-shadow: inset 3px 3px 2px #5B0002;
+	box-shadow: inset 5px 5px 3px #440002;
 	color: #FFFFFF;
 }
 
